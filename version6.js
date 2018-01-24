@@ -38,11 +38,31 @@ if(this.todos[i].completed === true){
     var todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
-  }
-};
+  },
 
-if(this.todos[i].completed === true){
-    console.log('(X)',this.todos[i].todoText);
-} else
-{  console.log('()', this.todos[i].todoText);
+  toggleALL: function(){
+    var totalTodos = this.todos.length;
+    var completedTodos = 0; 
+
+    for (var i = 0; i < totalTodos; i++){
+      if (this.todos[i].completed === true){
+        completedTodos++;
+      }
+    }
+
+  if( completedTodos === totalTodos){
+      for (var i =0; i < totalTodos; i++){
+        this.todos[i].completed = false;
+      } }
+      else {
+        for (var i = 0; i < totalTodos; i++){
+          this.todos[i].completed = true;
+        }
+      }
+     
+    this.displayTodos();
 }
+
+}; 
+
+
